@@ -13,6 +13,7 @@ function visBilett() {
     document.getElementById("kinobilletter").innerHTML=ut;
 }
 function registrer() {
+    console.log("Innsdfgsdf")
     fjernRodSkrift();
     let film = document.getElementById("film").value;
     let antall = document.getElementById("antall").value;
@@ -128,10 +129,10 @@ function validering(film,antall,fornavn,etternavn,telefon,epost){
     return gyldig;
 }
 function fjernRodSkrift(){
-    document.getElementById("filmErGalt").innerHTML="";
-    document.getElementById("antallErGalt").innerHTML="";
-    document.getElementById("fornavnErGalt").innerHTML="";
-    document.getElementById("etternavnErGalt").innerHTML="";
-    document.getElementById("telefonErGalt").innerHTML="";
-    document.getElementById("epostErGalt").innerHTML="";
+    document.getElementById("filmErGalt").innerHTML=" ";
+    document.getElementById("antallErGalt").innerHTML=" ";
+    document.getElementById("fornavnErGalt").innerHTML=" ";
+    document.getElementById("etternavnErGalt").innerHTML=" ";
+    document.getElementById("telefonErGalt").innerHTML=" ";
+    document.getElementById("epostErGalt").innerHTML=" ";
 }
