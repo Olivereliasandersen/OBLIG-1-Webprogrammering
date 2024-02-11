@@ -1,5 +1,11 @@
+//Lager et array for kinobilletter
 let kinobilletter = [];
 
+//Funksjon som printer ut at du må fylle inn input
+function nullInnhold(input){
+    document.getElementById(input+"ErGalt").innerHTML="Du må skrive noe inn i "+input;
+}
+//Funksjon som viser billetten
 function visBilett() {
     let ut = "<table><tr>" +
         "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th>" +
@@ -12,6 +18,7 @@ function visBilett() {
     }
     document.getElementById("kinobilletter").innerHTML=ut;
 }
+//Funksjon som fjerner den røde skriften som kommer når du har skrevet noe feil i input
 function fjernRodSkrift(){
     document.getElementById("filmErGalt").innerHTML="";
     document.getElementById("antallErGalt").innerHTML="";
@@ -20,38 +27,7 @@ function fjernRodSkrift(){
     document.getElementById("telefonnummerErGalt").innerHTML="";
     document.getElementById("epostErGalt").innerHTML="";
 }
-function registrer() {
-    fjernRodSkrift();
-    let film = document.getElementById("film").value;
-    let antall = document.getElementById("antall").value;
-    let fornavn = document.getElementById("fornavn").value;
-    let etternavn = document.getElementById("etternavn").value;
-    let telefon = document.getElementById("telefon").value;
-    let epost = document.getElementById("epost").value;
-    if (validering(film,antall,fornavn,etternavn,telefon,epost) === false){
-        return;
-    }
-    let filmbillett = {
-        film: film,
-        antall: antall,
-        fornavn: fornavn,
-        etternavn: etternavn,
-        telefon: telefon,
-        epost: epost
-    };
-    kinobilletter.push(filmbillett);
-    document.getElementById("film").value="";
-    document.getElementById("antall").value="";
-    document.getElementById("fornavn").value="";
-    document.getElementById("etternavn").value="";
-    document.getElementById("telefon").value="";
-    document.getElementById("epost").value="";
-    visBilett();
-}
-function slettBilletter(){
-    kinobilletter = [];
-    document.getElementById("kinobilletter").innerHTML="";
-}
+//Funksjon som sjekker om fornavn er skrevet på riktig måte, om ikke ber den deg skrive inn noe på nytt
 function valideringNavn(fornavn){
     const gyldigBokstaver = /^[a-zA-Z+æ+ø+å+Æ+Ø+Å]+$/;
     if (fornavn.match(gyldigBokstaver)){
@@ -62,6 +38,7 @@ function valideringNavn(fornavn){
         return false;
     }
 }
+//Funksjon som sjekker om etternavn er skrevet på riktig måte, om ikke ber den deg skrive inn noe på nytt
 function valideringNavn2(etternavn){
     const gyldigBokstaver = /^[a-zA-Z+æ+ø+å+Æ+Ø+Å]+$/;
     if (etternavn.match(gyldigBokstaver)){
@@ -72,6 +49,7 @@ function valideringNavn2(etternavn){
         return false;
     }
 }
+//Funksjon som sjekker om telefonnummer er skrevet på riktig måte, om ikke ber den deg skrive inn noe på nytt
 function valideringTelefon(telefon){
     const gyldigNummer = /^[0-9]{8}$/im;
     if (telefon.match(gyldigNummer)){
@@ -82,6 +60,7 @@ function valideringTelefon(telefon){
         return false;
     }
 }
+//Funksjon som sjekker om epost er skrevet på riktig måte, om ikke ber den deg skrive inn noe på nytt
 function valideringEpost(epost){
     const gyldigEpost = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (epost.match(gyldigEpost)){
@@ -92,9 +71,7 @@ function valideringEpost(epost){
         return false;
     }
 }
-function nullInnhold(input){
-    document.getElementById(input+"ErGalt").innerHTML="Du må skrive noe inn i "+input;
-}
+//Funksjon som bruker alle valideringene vi lagde rett før og nullinnhold funsksjonen til å gå gjennom alt å se om du er feil.
 function validering(film,antall,fornavn,etternavn,telefon,epost){
     let gyldig = true;
     if (film === ""){
@@ -134,4 +111,37 @@ function validering(film,antall,fornavn,etternavn,telefon,epost){
         gyldig = false;
     }
     return gyldig;
+}
+//
+function registrer() {
+    fjernRodSkrift();
+    let film = document.getElementById("film").value;
+    let antall = document.getElementById("antall").value;
+    let fornavn = document.getElementById("fornavn").value;
+    let etternavn = document.getElementById("etternavn").value;
+    let telefon = document.getElementById("telefon").value;
+    let epost = document.getElementById("epost").value;
+    if (validering(film,antall,fornavn,etternavn,telefon,epost) === false){
+        return;
+    }
+    let filmbillett = {
+        film: film,
+        antall: antall,
+        fornavn: fornavn,
+        etternavn: etternavn,
+        telefon: telefon,
+        epost: epost
+    };
+    kinobilletter.push(filmbillett);
+    document.getElementById("film").value="";
+    document.getElementById("antall").value="";
+    document.getElementById("fornavn").value="";
+    document.getElementById("etternavn").value="";
+    document.getElementById("telefon").value="";
+    document.getElementById("epost").value="";
+    visBilett();
+}
+function slettBilletter(){
+    kinobilletter = [];
+    document.getElementById("kinobilletter").innerHTML="";
 }
