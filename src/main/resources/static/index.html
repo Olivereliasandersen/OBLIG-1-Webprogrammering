@@ -12,6 +12,7 @@
 <body>
 <h1>Bestilling av kinobilletter</h1>
 <table>
+    <!--Dropdown hvor du velger 1 av fire filmer-->
     <tr><td>Velg film:</td><td>
         <select id="film">
             <option value=""></option>
@@ -20,6 +21,7 @@
             <option value="Cars">Cars</option>
             <option value="Harry Potter">Harry Potter</option>
         </select><label id="filmErGalt" for="film"></label></td></tr>
+    <!--Innputter som blir vist i kinobilletten-->
     <tr><td><br></td></tr>
     <tr><td>Antall</td><td><input type="number" id="antall" min="0" style="width: 30px"/><label id="antallErGalt"></label></td></tr>
     <tr><td><br></td></tr>
@@ -27,12 +29,14 @@
     <tr><td>Etternavn</td><td><input type="text" id="etternavn"/><label id="etternavnErGalt"></label></td></tr>
     <tr><td>Telefonnr</td><td><input type="tel" id="telefon"/><label id="telefonnummerErGalt"></label></td></tr>
     <tr><td>Epost</td><td><input type="text" id="epost"/><label id="epostErGalt"></label></td></tr>
+    <!--Knapp som registrerer alt du har skrevet og viser billetten-->
     <tr><td><button onclick="registrer()">Kjøp billett</button></td></tr>
 </table>
 <br>
 <h2>Alle billetter</h2>
 <div id="kinobilletter"></div>
 <br>
+<!--Knapp som sletter billetten-->
 <button onclick="slettBilletter()" type="button">Slett alle billettene</button>
 <script src="script.js"></script>
 </body>

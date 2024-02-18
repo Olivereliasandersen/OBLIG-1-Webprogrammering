@@ -112,7 +112,7 @@ function validering(film,antall,fornavn,etternavn,telefon,epost){
     }
     return gyldig;
 }
-//
+//Funksjon som tar inn det som ble skrevet i inputen og lager billetten
 function registrer() {
     fjernRodSkrift();
     let film = document.getElementById("film").value;
@@ -141,6 +141,7 @@ function registrer() {
     document.getElementById("epost").value="";
     visBilett();
 }
+//Funksjon som sletter billetten
 function slettBilletter(){
     kinobilletter = [];
     document.getElementById("kinobilletter").innerHTML="";
